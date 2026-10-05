@@ -24,7 +24,7 @@ function escape(e: KeyboardEvent) { if (e.key === 'Escape') modal.value = null }
 onMounted(() => window.addEventListener('keydown', escape)); onUnmounted(() => window.removeEventListener('keydown', escape))
 </script>
 <template>
-  <main class="app"><header><div><p class="eyebrow">Vue Lottery</p><h1>Учасники розіграшу</h1><p class="subtitle">Керуйте списком та оберіть переможця чесно й прозоро.</p></div><NewWinnerButton :disabled="!canDraw" @click="draw" /></header>
+  <main class="app"><header><div><p class="eyebrow">Vue Lottery</p><h1>Учасники розіграшу</h1><p class="subtitle">казино не обмане тебе.</p></div><NewWinnerButton :disabled="!canDraw" @click="draw" /></header>
   <WinnersList :winners="winners" @remove="removeWinner" />
   <section class="toolbar"><SearchBar v-model="query" /><button @click="modal = 'add'; selected = undefined">＋ Новий учасник</button></section>
   <section class="content"><div class="table-head"><h2>Учасники <span>{{ visible.length }}</span></h2><div class="sort"><button :class="{active: sort==='name'}" @click="sort='name'">A–Z</button><button :class="{active: sort==='birthDate'}" @click="sort='birthDate'">Дата</button><button @click="desc=!desc">{{ desc ? '↓' : '↑' }}</button></div></div>
